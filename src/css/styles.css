@@ -13,40 +13,27 @@ body {
   padding: 1em;
 }
 
-#search-box {
-  font: inherit;
-  padding: 8px;
-  max-width: 320px;
-  margin-bottom: 16px;
+.searchWrap{
+  outline: 1px solid white;
+  position: relative;
 }
 
-.flag {
-  height: 35px;
-  width: auto;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-  /* display: inline-block; */
-}
-
-.country{
-  font-weight: bold;
-  font-size: 1.5em;
-}
-
-.bold{
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-.country-list li {
-  list-style-type: none;
-}
-
-.flagwrap {
-  display: inline-block;
-  /* height: auto; */
-  width: 70px;
-}
-.item{
+.form{
+  background-color:mediumblue;
+  height: 50px;
   display: flex;
-  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.input{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  position: absolute;
+  top:0;
+  right:0;
+  width: 35px;
 }
