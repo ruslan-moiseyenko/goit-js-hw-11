@@ -31,7 +31,6 @@ async function onSearchButtonClick (e) {
   try {
     const { data } = await axios.get(getURL(querySearch));
     searchResults = data;
-    console.log(searchResults);
   } catch(error) {
     console.error(error);
   }
