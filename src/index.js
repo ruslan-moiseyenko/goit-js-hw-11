@@ -37,6 +37,7 @@ async function onSearchButtonClick (e) {
 
   if (!searchResults.hits.length){
     Notify.failure("Sorry, there are no images matching your search query. Please try again.");
+    buttonLoadMore.classList.add('is-hidden');
   } else {
     Notify.success(`We've found ${searchResults.total} matches`);
     renderSearchResults(searchResults, gallery);
