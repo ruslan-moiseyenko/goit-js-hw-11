@@ -10,7 +10,12 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
-  padding: 1em;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .searchWrap{
@@ -18,22 +23,49 @@ body {
   position: relative;
 }
 
-.form{
-  background-color:mediumblue;
+.search-form{
+  background-color:rgb(15, 49, 243);
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.input{
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  /* max-width: 1280px; */
+}
+
+.search-form .input{
   margin-left: auto;
   margin-right: auto;
 }
 
-.button {
-  position: absolute;
-  top:0;
-  right:0;
-  width: 35px;
+.photo-card {
+  width: 360px;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 3px 3px 5px gray;
+  margin: 10px
+
+}
+
+.photo-card img {
+  max-width: 100%;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.load-more {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.is-hidden {
+  display: none;
 }

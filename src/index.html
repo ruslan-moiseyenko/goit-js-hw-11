@@ -7,16 +7,19 @@
     <title>Homework 11</title>
   </head>
   <body>
-    <form class="form">
-      <div class="searchWrap">
-        <input type="sumbit" class="input" name="input" />
-        <input type="button" name="submit" class="button" value="&#128269" />
-      </div>
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button type="submit">Search</button>
     </form>
     <div class="gallery">
       <!-- Карточки изображений -->
     </div>
-
+    <button type="button" class="load-more is-hidden">Load more</button>
     <script src="index.js"></script>
   </body>
 </html>
