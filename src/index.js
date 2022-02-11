@@ -2,7 +2,7 @@ import './css/styles.css';
 import "normalize.css";
 import renderSearchResults from "./renderSearchResults"
 import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.css";
+import "simplelightbox/dist/simple-lightbox.min.css";
 const axios = require('axios').default;
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import "notiflix/dist/notiflix-3.2.4.min.css";
