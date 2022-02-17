@@ -1,6 +1,7 @@
 import './css/styles.css';
 import "normalize.css";
 import renderSearchResults from "./renderSearchResults"
+import getURL from "./getUrl"
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 const axios = require('axios').default;
@@ -22,20 +23,24 @@ form.addEventListener('submit', onSearchButtonClick);
 buttonLoadMore.addEventListener('click', onButtonLoadMoreClick);
 
 
-async function onSearchButtonClick (e) {
+async function onSearchButtonClick(e) {
   e.preventDefault();
+  querySearch = e.currentTarget.searchQuery.value.trim().split(' ').join('+');
+  if (querySearch === '') {
+    e.target.reset();
+    return;
+  }
   gallery.innerHTML = '';
-  querySearch = e.currentTarget.searchQuery.value.split(' ').join('+');
-  let searchResults ={};
+  let searchResults = {};
 
   try {
     const { data } = await axios.get(getURL(querySearch));
     searchResults = data;
-  } catch(error) {
+  } catch (error) {
     console.error(error);
   }
 
-  if (!searchResults.hits.length){
+  if (!searchResults.hits.length) {
     Notify.failure("Sorry, there are no images matching your search query. Please try again.");
     buttonLoadMore.classList.add('is-hidden');
   } else {
@@ -45,23 +50,23 @@ async function onSearchButtonClick (e) {
     createLightBox();
   }
 
-  e.target.reset();
+  //e.target.reset();
 }
 
 
-async function onButtonLoadMoreClick (e){
+async function onButtonLoadMoreClick(e) {
   e.preventDefault();
-  currentPage +=1;
-  let searchResults ={};
+  currentPage += 1;
+  let searchResults = {};
 
   try {
     const { data } = await axios.get(getURL(querySearch, currentPage));
     searchResults = data;
-  } catch(error) {
+  } catch (error) {
     console.error(error);
   }
 
-  if ((currentPage * 40) > searchResults.totalHits.length || (currentPage * 40) > searchResults.total ){
+  if ((currentPage * 40) > searchResults.totalHits.length || (currentPage * 40) > searchResults.total) {
     Notify.warning("Sorry, we've reached the limit of our search");
   }
 
@@ -69,10 +74,6 @@ async function onButtonLoadMoreClick (e){
   gallerySLB.refresh();
 }
 
-function getURL(query, page = 1) {
-  const pesonalKey = "25600695-4ceee91aa58c1079792de0ba1";
-  return `https://pixabay.com/api/?key=${pesonalKey}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=40`;
-}
 
 
 function createLightBox() {

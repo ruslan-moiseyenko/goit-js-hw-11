@@ -1,6 +1,6 @@
-export default function renderSearchResults({hits}, gallery) {
+export default function renderSearchResults({ hits }, gallery) {
   hits.forEach(item => {
-    gallery.insertAdjacentHTML('beforeend',`
+    gallery.insertAdjacentHTML('beforeend', `
       <div class="photo-card">
         <a href="${item.largeImageURL}">
           <img src="${item.webformatURL}" alt="${item.tags}" loading="lazy" />
